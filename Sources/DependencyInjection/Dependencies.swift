@@ -13,7 +13,7 @@ final class Dependencies {
     
     static func register<T>(_ object: Any, for type: T.Type) {
         guard object is T else {
-            fatalError("ERROR: \(object) is not a subtype of \(T.self), or does not conform to \(type)")
+            fatalError("ERROR: \(object) is not a subtype of \(T.self), or does not conform to \(type) ")
         }
         
         let id = ObjectIdentifier(type)
