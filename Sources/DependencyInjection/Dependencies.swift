@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class Dependencies {
+public final class Dependencies {
     
     private static var storage: [ObjectIdentifier: Any] = [:]
     
-    static func register<T>(_ object: Any, for type: T.Type) {
+    public static func register<T>(_ object: Any, for type: T.Type) {
         guard object is T else {
             fatalError("ERROR: \(object) is not a subtype of \(T.self), or does not conform to \(type) ")
         }
@@ -25,7 +25,7 @@ final class Dependencies {
         storage[id] = object
     }
     
-    static func resolve<T>(for type: T.Type) -> T {
+    public  static func resolve<T>(for type: T.Type) -> T {
         let id = ObjectIdentifier(type)
         
         guard let injectedObject = storage[id] as? T else {

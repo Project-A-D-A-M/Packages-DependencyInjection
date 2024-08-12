@@ -8,15 +8,15 @@
 import Foundation
 
 @propertyWrapper
-struct Injected<Service> {
+public struct Injected<Service> {
     
     private let type: Service.Type
     
-    init(_ type: Service.Type = Service.self) {
+    public init(_ type: Service.Type = Service.self) {
         self.type = type
     }
     
-    var wrappedValue: Service {
+    public var wrappedValue: Service {
         Dependencies.resolve(for: Service.self)
     }
 }
